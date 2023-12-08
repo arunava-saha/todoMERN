@@ -46,7 +46,6 @@ const Home = () => {
       .delete(`/task/${id}`)
       .then((result) => {
         dispatch(removeTask(id));
-        setTasks(result.data.tasks);
       })
       .catch((err) => console.log(err));
   };
@@ -100,11 +99,11 @@ const Home = () => {
             Previous
           </Button>
           <Button size="large" disabled>
-            {page}
+            {page + 1}
           </Button>
           <Button
             onClick={() => {
-              setPage(page + 1);
+              if (tasks.length > (page + 1) * 4) setPage(page + 1);
             }}
           >
             Next
