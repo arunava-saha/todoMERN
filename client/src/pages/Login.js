@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Dropzone from "react-dropzone";
-import axios from '../services/api'
+import axios from "../services/api";
 import { setLogin } from "../redux/UserSlice";
 
 const initialRegisterValues = {
@@ -46,28 +46,28 @@ const Login = () => {
   const navigate = useNavigate();
   const isNotMobile = useMediaQuery("(min-width:768px)");
 
-  const handleLogin = (values , onSubmitProps) => {
-   axios.post('/auth/login', values).then((res) => {
-    onSubmitProps.resetForm()
-    dispatch(setLogin(res.data.user))
-    navigate('/home')
-   })
-  }
+  const handleLogin = (values, onSubmitProps) => {
+    axios.post("/auth/login", values).then((res) => {
+      onSubmitProps.resetForm();
+      dispatch(setLogin(res.data.user));
+      navigate("/home");
+    });
+  };
 
-  const handleRegister = (values , onSubmitProps) => {
-    let formData = new FormData()
-    for(const property of Object.keys(values)) {
-        formData.append(property , values[property])
+  const handleRegister = (values, onSubmitProps) => {
+    let formData = new FormData();
+    for (const property of Object.keys(values)) {
+      formData.append(property, values[property]);
     }
-    axios.post('/auth/register' , formData).then((res) => {
-        onSubmitProps.resetForm()
-        setPage('login')
-    })
-  }
+    axios.post("/auth/register", formData).then((res) => {
+      onSubmitProps.resetForm();
+      setPage("login");
+    });
+  };
 
   const handleForm = (values, onSubmitProps) => {
-    if(isLogin) handleLogin(values, onSubmitProps)
-    if(isRegister) handleRegister(values, onSubmitProps)
+    if (isLogin) handleLogin(values, onSubmitProps);
+    if (isRegister) handleRegister(values, onSubmitProps);
   };
 
   return (
@@ -88,7 +88,7 @@ const Login = () => {
       }) => (
         <Box p="2rem 0" m="2rem auto" width={isNotMobile ? "50%" : "90%"}>
           <Typography textAlign="center" mb="2rem">
-            Welcome to Taskup
+            Welcome to TodoMERN
           </Typography>
           <form onSubmit={handleSubmit}>
             <Box display="flex" flexDirection="column" gap="30px">
