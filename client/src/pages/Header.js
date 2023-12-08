@@ -1,8 +1,7 @@
-import { Box, Select, MenuItem, InputLabel } from "@mui/material";
+import { Box, Select, MenuItem } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setLogout } from "../redux/UserSlice";
-import { green } from "@mui/material/colors";
 const Header = () => {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -10,13 +9,13 @@ const Header = () => {
   return (
     <Box
       height="50px"
-      backgroundColor="#03c6fc"
-      padding="0 20px"
+      backgroundColor="#03f6fc"
+      padding="10px 20px"
       display="flex"
       alignItems="center"
       justifyContent="space-between"
     >
-      <Box fontSize="20px" color="#fff" fontWeight="bold">
+      <Box fontSize="24px" color="#fff" fontWeight="bold">
         <Link to="/home" style={{ textDecoration: "none" }}>
           Home
         </Link>
@@ -24,7 +23,7 @@ const Header = () => {
           to="/task/create"
           style={{
             textDecoration: "none",
-            color: "green",
+            color: "yellow",
             paddingLeft: "20px",
           }}
         >

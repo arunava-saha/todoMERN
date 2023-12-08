@@ -56,7 +56,6 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       //One time insertion to Db
-      //  Task.insertMany(tasks)
       console.log(`app is listening to PORT ${PORT}`);
     });
   })
